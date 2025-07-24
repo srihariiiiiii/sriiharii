@@ -1,0 +1,43 @@
+// Global tasks array
+let tasks = [];
+
+// 1) Function to add a task and call a callback
+function addTask(task, callback) {
+    tasks.push(task);
+    callback(); // Call the callback after adding the task
+}
+
+// 2) Callback function to print all current tasks
+function printTasks() {
+    console.log("Current Tasks:");
+    tasks.forEach((task, index) => console.log(`${index + 1}. ${task}`));
+}
+
+// 3) Arrow function as an alternative way to print tasks
+const printTasksArrow = () => {
+    console.log("Tasks (Arrow Function):");
+    tasks.forEach((task, index) => console.log(`${index + 1}. ${task}`));
+};
+
+// 4) Function to add multiple tasks at once using rest parameter
+function addMultipleTasks(...newTasks) {
+    newTasks.forEach(task => tasks.push(task));
+    printTasks();
+}
+
+// 5) Illustrate variable scopes
+let globalVar = "I am Global";
+
+function checkScope() {
+    let localVar = "I am Local";
+    console.log(globalVar); // Accessible
+    console.log(localVar);  // Accessible
+}
+checkScope();
+// console.log(localVar); // ❌ Error: Not accessible outside function
+
+// ---- Example Usage ----
+addTask("Learn JavaScript", printTasks);
+addTask("Complete Project", printTasksArrow);
+addMultipleTasks("Buy Groceries", "Go to Gym", "Read a Book");
+
