@@ -1,0 +1,38 @@
+// Products array
+let products = [
+  { id: 1, name: "Pen", price: 10, quantity: 5 },
+  { id: 2, name: "Book", price: 100, quantity: 2 },
+  { id: 3, name: "Eraser", price: 5, quantity: 0 },
+];
+
+// Filter products with quantity > 0
+let available = products.filter(p => p.quantity > 0);
+console.log("Available Products:", available);
+
+// Total cart value
+let total = available.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+console.log("Total Cart Value:", total);
+
+// Update quantity using map
+products = products.map(p =>
+  p.id === 2 ? { ...p, quantity: p.quantity + 1 } : p
+);
+
+// Remove product by id
+products = products.filter(p => p.id !== 3);
+
+// Product object with method
+let product = {
+  id: 4,
+  name: "Notebook",
+  price: 50,
+  quantity: 3,
+  printDetails() {
+    console.log(`${this.name} costs ${this.price}, quantity: ${this.quantity}`);
+  }
+};
+product.printDetails();
+
+// Destructuring
+let { name, price } = product;
+console.log(`Name: ${name}, Price: ${price}`);
