@@ -1,0 +1,19 @@
+var num1=10;
+var num2=10;
+var sum=num1+num2;
+console.log("Addition:",sum);
+
+var num1=10;
+var num2=10;
+var sub=num1-num2;
+console.log("Subraction:",sub);
+
+var num1=10;
+var num2=10;
+var mul=num1*num2;
+console.log("Multiplication:",mul);
+
+var num1=10;
+var num2=10;
+var div=num1/num2;
+console.log("Division:",div);
