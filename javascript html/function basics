@@ -1,0 +1,133 @@
+//function scope
+//This scope means that the variables are only acessible
+//In the function in which they are declared
+function Say(){
+    let name="Javascript"
+    console.log("Hai global scope");
+    console.log("Within the func"+name)
+}
+Say()
+
+//Block scope
+//The block scope of a variable means that the variable is accessible
+//within the block that is between the curly braces.
+function Voting(age){
+    if(age>=18){
+        let iscloudy=true;
+        var israining=true;
+        console.log("eligible")
+        console.log(iscloudy);
+    }
+    console.log(israining);
+}
+Voting(18)
+
+//Block scope
+//local scope (same as function or block scope depending on context)
+//callback function
+function text(){
+    console.log("message");
+}
+function send(callback){
+    console.log("message sended");
+    callback();
+}
+send(text);
+
+//Using setTimeout in callback function
+function text(){
+    console.log("message");
+}
+function send(callback){
+    console.log("message sended");
+    setTimeout(callback,2000);
+}
+send(text);
+
+//Using setInterval in callback function
+function text(){
+    console.log("message");
+}
+function send(callback){
+    console.log("message sended");
+    setInterval(callback,1000);
+}
+send(text);
+
+//Arrow Function
+let count=0;
+let Interval=()=>{
+    count++;
+    console.log(count);
+    if(count<5){
+        Interval();
+    }
+}
+Interval();
+
+           (or)
+let a=10;
+function Say(){
+    console.log("hai");
+    console.log("Within "+a);
+}
+Say()
+console.log("Within "+a);
+
+let globalvar="i am Global"
+function Say(){
+    console.log("hai Global Scope");
+    console.log("Within "+globalvar);
+}
+Say()
+console.log("outside"+globalvar);
+
+function Voting(age) {
+    if (age >= 18) {
+        const iscloudy = true;
+        var israining = true;
+        console.log("eligible");
+        console.log(iscloudy);
+    }
+
+    console.log(israining);
+     
+ }
+ Voting(18);
+
+ callback function
+ 
+
+function text(){
+    console.log("message");
+ }
+
+function send(callback){
+    console.log("message sended");
+    setInterval(callback,3);
+ }
+ send(text);
+ 
+let count=0;
+let Interval=()=>{
+    count++;
+    console.log(count);
+    if(count<5){
+        Interval();
+    }
+}
+Interval()
+
+
+
+
+
+
+
+
+
+//Global scope:
+//variables declared outside any function or block are in the global scope.
+//they are accessiable anywhere in the script.
+//local scope:
+//same as function or block scope depending on context
