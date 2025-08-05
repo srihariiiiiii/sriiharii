@@ -1,0 +1,7 @@
+var num=12;
+var name=`js`;
+var iscloudy=true;
+console.log(num+" "+name+" "+iscloudy);
+document.write(num);
+document.write(name);
+document.write(iscloudy);
