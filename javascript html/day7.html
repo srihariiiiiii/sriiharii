@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Form Validation</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <form onsubmit="return validateForm()">
+        <label for="name">Name</label><br>
+        <input type="text" id="name" name="name">
+        <div class="error" id="nameError"></div><br>
+
+        <label for="email">Email</label><br>
+        <input type="text" id="email" name="email">
+        <div class="error" id="emailError"></div><br>
+
+        <label for="password">Password</label><br>
+        <input type="password" id="password" name="password">
+        <div class="error" id="passwordError"></div><br>
+
+
+        <label for="phone">Mobile Number</label><br>
+        <input type="text" id="phone" name="phone">
+        <div class="error" id="phoneError"></div><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        function validateForm() {
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+
+            document.getElementById("nameError").innerText = "";
+            document.getElementById("emailError").innerText = "";
+            document.getElementById("passwordError").innerText = "";
+            document.getElementById("phoneError").innerText = "";
+
+            let valid = true;
+
+            if (name === "") {
+                document.getElementById("nameError").innerText = "Name cannot be empty";
+                valid = false;
+            }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email === "") {
+                document.getElementById("emailError").innerText = "Email cannot be empty";
+                valid = false;
+            } else if (!emailRegex.test(email)) {
+                document.getElementById("emailError").innerText = "Invalid email format";
+                valid = false;
+            }
+
+            if (password === "") {
+                document.getElementById("passwordError").innerText = "Password cannot be empty";
+                valid = false;
+            } else if (password.length < 6) {
+                document.getElementById("passwordError").innerText = "Password must be at least 6 characters";
