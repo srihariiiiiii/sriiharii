@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="Enter the text" id="inputValue">
+    <button onclick="ToDolist()">Add Task</button> 
+    <ul id="listcontent"></ul>
+    <script>
+        function ToDolist(){
+            let textValue=document.getElementById("inputValue").value.trim();
+            if(textValue ===" ")
+                return ;
+
+                let li=document.createElement("li");
+                li.textContent=textValue;
+                document.getElementById("listcontent").appendChild(li);
+
+                let removeBtn=document.createElement("button");
+                removeBtn.textContent="remove";
+                removeBtn.addEventListener("click",function(e){
+                    li.remove();
+
+                })
+                li.appendChild(removeBtn);
+
+        }
+    </script>
+</body>
+</html>
