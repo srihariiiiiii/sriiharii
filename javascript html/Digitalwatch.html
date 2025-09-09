@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=d, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #fc0000;
+            color: #ffc400;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #clock {
+            font-size: 4rem;
+            background-color: #db0505;
+            padding: 20px 40px;
+            border: 2px solid #f700ff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px #f74701;
+        }
+    </style>
+</head>
+<body>
+    <div id="clock">loading....</div>
+
+    <script>
+        function DigitalClock() {
+            let now = new Date();
+
+            let hours = now.getHours();
+            let minutes = now.getMinutes();
+            let seconds = now.getSeconds();
+
+            const ampm = hours >= 12 ? 'pm' : 'am';
+
+            hours = hours % 12;
+            hours = hours ? hours : 12;
+
+            const hh = String(hours).padStart(2, '0');
+            const mm = String(minutes).padStart(2, '0');
+            const ss = String(seconds).padStart(2, '0');
+
+            const timeString = `${hh}:${mm}:${ss} ${ampm}`;
+            document.getElementById("clock").textContent = timeString;
+        }
+
+        DigitalClock();
+        setInterval(DigitalClock, 1000);
+    </script>
+</body>
+</html>
