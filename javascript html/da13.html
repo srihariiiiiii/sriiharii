@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        try {
+            // Code that may throw an error
+        } catch (error) {
+            // Code to handle the error
+        } finally {
+            // Code that will always execute
+        }
+
+        try {
+            let atmpin = 2006;
+            if (atmpin !== 2606) {
+                throw "You entered an incorrect pin"; // corrected message
+            }
+            console.log("Logged in");
+        } catch (error) {
+            console.log("Error: " + error); // fixed error logging with a colon
+        } finally {
+            console.log("Executed successfully");
+        }
+
+        // JSON methods: parse(), stringify()
+        // parse() - converts string to JSON object
+        // stringify() - converts JSON object to string
+        
+        let str = '{"name":"santiiiiiiiiiii"}'; 
+        console.log(str);
+        
+        let strstred = JSON.parse(str); 
+        console.log(strstred); 
+        let obj = { id: "4" };
+        let stredobj = JSON.stringify(obj); 
+        console.log(stredobj); 
+    </script>
+</body>
+</html>
