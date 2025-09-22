@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //A Set is a collection of unique values,
+        //it automatically removes duplicate.
+        //Syntax:
+        //let mySet=new Set([iterable]);
+
+        let email=new Set([])
+        email.add("sai@gmail.com");
+        email.add("itachi@gmail.com");
+        email.add("obito@gmail.com");
+        console.log(email);
+        //email.delete("sai@gmail.com");
+        //console.log(email);
+        //email.clear()
+        //console.log(email)
+        //for of
+        for(let mailId of email){
+            console.log(mailId);
+        }
+        email.forEach(x=>{
+            console.log(email)
+        })
+        let adminpermission=new Set(["read","write","delete"]);
+        let userpermission=new Set(["read"]);
+        function hasPermission(Role,Permission){
+            return Role.has(Permission)
+        }
+        console.log(hasPermission(adminpermission,"delete"));
+        console.log(hasPermission(userpermission,"delete"));
+
+        //union,intersection,difference using Sets
+
+        let setA=new Set([1,2,3,4,5,1]);
+        let setB=new Set([6,7,8,9,2,10]);
+        let union=new Set([...setA,...setB])
+        console.log(union);
+        //intersection
+
+        let intersection=new Set([...setA].filter(x=>setB.has(x)))
+        console.log(intersection)
+</script>
+</body>
+</html>
