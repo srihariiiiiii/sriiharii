@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+       <title>Document</title>
+</head>
+<body>
+    <h2>JAVA SCRIPT STOPWATCH</h2>
+    <p id="display">00:00</p>
+    <button onclick="Start()">START</button>
+    <button onclick="Stop()">STOP</button>
+    <button onclick="Reset()">RESET</button>
+    <script>
+        let seconds=0;
+        let intervalid=null;
+        function updateDisplay(){
+            let minits=String(Math.floor(seconds / 60)).padStart(2,'0');
+            let secs=String(seconds % 60).padStart(2,'0');
+            document.getElementById("display").textContent=`${minits}:${secs}`;
+        }
+
+        function Start(){
+            if(!intervalid){
+                intervalid=setInterval(()=>{
+                    seconds++;
+                    updateDisplay()
+                },1000)
+            }
+           
+        }
+        function Stop(){
+            clearInterval(intervalid);
+            intervalid=null;
+        }
+        function Reset(){
+           stop();
+           seconds=0;
+           updateDisplay();
+        }
+       
+       
+    </script>
+</body>
+</html>
